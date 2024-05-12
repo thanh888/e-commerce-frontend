@@ -4,24 +4,26 @@ import { routes } from "./routes/index";
 import DefaultComponent from "./components/DefaultComponent/DefaultComponent";
 export function App() {
   return (
-    <Router>
-      <Routes>
-        {routes.map((route) => {
-          const Layout = route.isShowHeader ? DefaultComponent : Fragment;
-          return (
-            <Route
-              path={route.path}
-              element={
-                <>
-                  <Layout />
-                  <route.page />
-                </>
-              }
-            />
-          );
-        })}
-      </Routes>
-    </Router>
+    <div className="bg-slate-300">
+      <Router>
+        <Routes>
+          {routes.map((route) => {
+            const Layout = route.isShowHeader ? DefaultComponent : Fragment;
+            return (
+              <Route
+                path={route.path}
+                element={
+                  <>
+                    <Layout />
+                    <route.page />
+                  </>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 export default App;
